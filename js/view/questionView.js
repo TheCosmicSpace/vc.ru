@@ -23,6 +23,7 @@ export default class QuestionUnit{
     this.counterHTML.innerText = `${this.counter}`;
     this.titleHTML.innerText = this.currentQuestion.question;
     this.descHTML.innerHTML = '';
+    this.descHTML.classList.add('hide');
     this.renderVariants();
   }
   // Click Event (Делегирование событий)
@@ -97,8 +98,10 @@ export default class QuestionUnit{
         desc = desc.replace(word, `<a class="link" target='blank' href="${link}">$&</a>`)
       }
     });
-    flash(this.descHTML, ({element}) =>{
+
+    flash(this.descHTML, ({element, style}) =>{
       element.innerHTML = desc;
+      element.classList.remove('hide');
     });
   }
 }

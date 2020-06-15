@@ -17,9 +17,7 @@ export default class FinalUnit{
     this.resultHTML.innerText = `${rightCounter} из ${amountQuestions} правильных ответов`;
     this.titleHTML.innerText = this.answerView.title;
     this.finalImg.classList.add(this.answerView.imgName);
-    this.finalImg.src = `../img/answer/${this.answerView.imgName}.png`;
-    
-    // console.log(this.root.style.backgroundImage = `url(../img/answer/${this.answerView.imgName}.png)`);
+    this.finalImg.src = `img/answer/${this.answerView.imgName}.png`;
   }
   toRepeatEvent(action){
     this.repeatBtn.addEventListener('click', () => {

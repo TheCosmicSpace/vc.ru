@@ -2,14 +2,14 @@ const speed = 350;
 
 export function fadeIn(element, isMove = true){
   const seconds = speed / 1000;
-  element.style.transition = `${seconds}s ease-in-out`;
+  element.style.transition = `opacity ${seconds}s, transform ${seconds}s`;
   element.style.opacity = 1;
   if(isMove) element.style.transform = 'translateX(0px)';
 }
 
 export function fadeOut(element, callback = null, isMove = true){
   const seconds = speed / 1000;
-  element.style.transition = `${seconds}s ease-in-out`;
+  element.style.transition = `opacity ${seconds}s, transform ${seconds}s`;
   element.style.opacity = 0;
   if(isMove) element.style.transform = 'translateX(30px)';
   

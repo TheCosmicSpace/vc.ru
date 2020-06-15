@@ -100,7 +100,6 @@ img{
 
 /* === Start View === */
 .start-view{
-  /* position: relative; */
   height: 100%;
   z-index: 1;
   padding: 68px 30px 40px 30px;
@@ -202,12 +201,6 @@ img{
 .variant-btn:not(:last-child){
   margin-bottom: 10px;
 }
-.variant-btn.wrong,
-.variant-btn.right{
-  position: absolute;
-  top: 0;
-  z-index: 2;
-}
 .variant-btn.wrong{
   color: var(--wrong-color);
   border: 2px solid var(--wrong-color);
@@ -220,7 +213,13 @@ img{
   font-size: 1rem;
   line-height: 23px;
   margin-top: 30px;
+  visibility: visible;
+  opacity: 1;
+}
+.question-desc.hide{
+  visibility: hidden;
   opacity: 0;
+  margin: 0;
 }
 .next-btn,
 .repeat-btn{
@@ -229,6 +228,8 @@ img{
   align-items: center;
   font-size: 1.25rem;
   font-weight: bold;
+}
+.next-btn{
   opacity: 0;
   visibility: hidden;
 }
@@ -257,7 +258,6 @@ img{
 /* === Final View === */
 .final-view{
   margin: 30px auto 40px auto;
-  /* padding: 0 40px; */
   align-items: flex-start;
   padding-right: 120px;
   z-index: 2;
@@ -318,8 +318,6 @@ img{
 
 /* Repeat Btn */
 .repeat-btn{
-  visibility: visible;
-  opacity: 1;
   align-items: flex-end;
   transition: color .3s;
 }

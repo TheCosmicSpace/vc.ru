@@ -12,12 +12,27 @@ export default class FinalUnit{
   }
   // Render View
   render(rightCounter, amountQuestions){
-    
     this.answerView = this.selectAnswerView(rightCounter);
     this.resultHTML.innerText = `${rightCounter} из ${amountQuestions} правильных ответов`;
     this.titleHTML.innerText = this.answerView.title;
     this.finalImg.classList.add(this.answerView.imgName);
-    this.finalImg.src = `img/answer/${this.answerView.imgName}.png`;
+    this.finalImg.src = `./img/answer/${this.answerView.imgName}.png`;
+  }
+  shareBtnInit(){
+    const shareButtons = this.unit.querySelectorAll(".share-btn");
+    if (shareButtons) {
+      shareButtons.forEach(button => {
+      button.addEventListener("click", event => {
+        event.preventDefault();
+ 				const width = 650,
+              height = 450,
+              url = window.location.href,
+              text = "Как хорошо вы разбираетесь в новостях бизнеса";
+        const shareUrl = button.href.replace('{{url}}', url).replace('{{text}}', text);
+        window.open(shareUrl, 'Share Dialog', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width='+width+',height='+height+',top='+(screen.height/2-height/2)+',left='+(screen.width/2-width/2));
+        });
+      });
+    }
   }
   toRepeatEvent(action){
     this.repeatBtn.addEventListener('click', () => {
@@ -25,7 +40,6 @@ export default class FinalUnit{
       action();
     });
   }
-
   selectAnswerView(rightCounter){
     return mapAnswers.reduce((acc, ans) => {
       if(rightCounter >= ans.rightAnswers) acc = Object.assign(ans);

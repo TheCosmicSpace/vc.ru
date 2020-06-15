@@ -52,6 +52,7 @@ function finalView(rightCounter, amountQuestions){
   workSpace.innerHTML = view.render('finalViewTemplate');
   const finalUnit = new FinalUnit(workSpace);
   finalUnit.render(rightCounter, amountQuestions);
+  finalUnit.shareBtnInit();
   finalUnit.toRepeatEvent(questionView);
 }
 
